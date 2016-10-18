@@ -6,6 +6,8 @@ from django.db import models
 
 class Relationship(models.Model):
 
+    unique_together = ("origin", "target")  # funciona en mysql o postgres
+
     origin = models.ForeignKey(User, related_name='relationship_origin')  # usuario que sigue
     target = models.ForeignKey(User, related_name='relationship_target')  # usuario al que sigue
     create_at = models.DateTimeField(auto_now_add=True)

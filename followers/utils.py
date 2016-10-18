@@ -16,6 +16,7 @@ def get_followers(user):
 
     return followers
 
+
 def get_following(user):
 
     relationships = user.relationship_origin.select_related('target')
