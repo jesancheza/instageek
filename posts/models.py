@@ -11,6 +11,7 @@ class Post(models.Model):
 
     owner = models.ForeignKey(User)
     description = models.TextField()
-    image = ThumbnailerImageField(resize_source=DEFAULT_IMAGE_OPTIONS)
+    image = ThumbnailerImageField()
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    image_resized = models.BooleanField(default=False)
