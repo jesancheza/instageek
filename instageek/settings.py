@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'followers',
     'rest_framework',
     'posts',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
