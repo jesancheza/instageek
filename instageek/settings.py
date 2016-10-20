@@ -131,3 +131,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
+
+
+# Image size
+DEFAULT_IMAGE_SIZE = (1200, 1200)
