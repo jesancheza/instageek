@@ -134,8 +134,9 @@ MEDIA_URL = '/media/'
 
 
 # Image size
-DEFAULT_IMAGE_SIZE = (1200, 1200)
+DEFAULT_IMAGE_SIZE = (2500, 2500)
 
+THUMBNAIL_NAMER = 'easy_thumbnails.namers.alias'
 THUMBNAIL_HIGH_RESOLUTION = True
 THUMBNAIL_ALIASES = {
     '': {
