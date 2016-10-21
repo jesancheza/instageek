@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'posts',
     'easy_thumbnails',
+    'kombu.transport.django',  # para que funcione  como broker/cola de tareas
 ]
 
 MIDDLEWARE = [
@@ -138,6 +139,7 @@ DEFAULT_IMAGE_SIZE = (2500, 2500)
 
 THUMBNAIL_NAMER = 'easy_thumbnails.namers.alias'
 THUMBNAIL_HIGH_RESOLUTION = True
+THUMBNAIL_QUALITY = 100
 THUMBNAIL_ALIASES = {
     '': {
         'small': {'size': (500, 500), 'crop': True},
@@ -145,3 +147,5 @@ THUMBNAIL_ALIASES = {
         'large': {'size': (1000, 1000), 'crop': True},
     },
 }
+
+BROKER_URL = 'django://'  # le dice a celery que se tiene que conectar a kombu
