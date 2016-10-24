@@ -38,11 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'followers',
-    'rest_framework.authtoken',  # implementa autenticacion por API key
     'posts',
     'easy_thumbnails',
-    'kombu.transport.django',  # para que funcione  como broker/cola de tareas
-    'users',
+    'kombu.transport.django',  # para que funcione como broker/cola de tareas
+    'rest_framework.authtoken',  # contiene los modelos y clases para generar los API Key
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'django.contrib.sites',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +66,8 @@ ROOT_URLCONF = 'instageek.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,13 +140,11 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
 
-
 # Image size
 DEFAULT_IMAGE_SIZE = (2500, 2500)
 
 THUMBNAIL_NAMER = 'easy_thumbnails.namers.alias'
 THUMBNAIL_HIGH_RESOLUTION = True
-THUMBNAIL_QUALITY = 100
 THUMBNAIL_ALIASES = {
     '': {
         'small': {'size': (500, 500), 'crop': True},
@@ -149,13 +153,22 @@ THUMBNAIL_ALIASES = {
     },
 }
 
-BROKER_URL = 'django://'  # le dice a celery que se tiene que conectar a kombu
+# Celery settings
+BROKER_URL = 'django://'  # le dice a Celery que se tiene que conectar a Kombu
 
 # REST Framework Settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',  # poder autenticarnos por API Key
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',  # poder autenticarnos por JWT
     )
 }
+
+# Sites
+SITE_ID = 1
+
+# No enviar e-mail de verificacion de cuenta
+ACCOUNT_EMAIL_VERIFICATION = "none"
+REST_USE_JWT = True  # al hacer login os devuelvan el token JWT
