@@ -8,3 +8,5 @@ __author__ = 'joseenriquesanchezalfonso'
 @shared_task
 def generate_responsive_images(post):
     generate_all_aliases(post.image, True)
+    post.image_resized = True
+    post.save()
