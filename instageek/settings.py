@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'followers',
-    'rest_framework',
+    'rest_framework.authtoken',  # implementa autenticacion por API key
     'posts',
     'easy_thumbnails',
     'kombu.transport.django',  # para que funcione  como broker/cola de tareas
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,12 @@ THUMBNAIL_ALIASES = {
 }
 
 BROKER_URL = 'django://'  # le dice a celery que se tiene que conectar a kombu
+
+# REST Framework Settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
