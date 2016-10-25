@@ -171,4 +171,6 @@ SITE_ID = 1
 
 # No enviar e-mail de verificacion de cuenta
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+# JWT
 REST_USE_JWT = True  # al hacer login os devuelvan el token JWT
