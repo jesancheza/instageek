@@ -45,9 +45,11 @@ INSTALLED_APPS = [
     'rest_auth',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'rest_auth.registration',
     'django.contrib.sites',
-    'users'
+    'users',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
@@ -163,6 +165,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',  # poder autenticarnos por API Key
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',  # poder autenticarnos por JWT
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication'  # poder autenticarnos por OAuth2
     )
 }
 
