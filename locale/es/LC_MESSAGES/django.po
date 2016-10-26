@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-19 21:52+0000\n"
+"POT-Creation-Date: 2016-10-26 21:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,38 @@ msgstr "No puedes seguirte a tí mismo"
 msgid "You already follow this user"
 msgstr "Ya estás siguiendo a este usuario"
 
+#: posts/apps.py:8
+#, fuzzy
+#| msgid "Posts"
+msgid "posts"
+msgstr "Entradas"
+
+#: posts/apps.py:9 posts/models.py:20
+msgid "Posts"
+msgstr "Entradas"
+
+#: posts/models.py:12
+msgid "Description"
+msgstr "Descripción"
+
+#: posts/models.py:13
+msgid "Image"
+msgstr "Imagen"
+
+#: posts/models.py:16
+msgid "Image Resized"
+msgstr "Imagen Redimensionada"
+
+#: posts/models.py:19
+#, fuzzy
+#| msgid "Posts"
+msgid "Post"
+msgstr "Entrada"
+
 #: templates/hello.html:10
 #, python-format
 msgid "Hello %(name)s "
 msgstr "Hola %(name)s "
+
+#~ msgid "Entradas"
+#~ msgstr "Entradas"
